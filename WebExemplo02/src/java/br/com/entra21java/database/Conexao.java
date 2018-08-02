@@ -17,7 +17,9 @@ public class Conexao {
     
     public static Connection obterConexao(){
         try{
+            Class.forName(CLASS);
             conexao = DriverManager.getConnection(HOST, USER, PASSWORD);
+            
             return conexao;
         }catch (Exception e){
             e.printStackTrace();
