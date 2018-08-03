@@ -41,7 +41,7 @@ public class AlimentoDao {
     }
 
     public int adicionar(AlimentoBean alimento){
-        String sql = "INSERT INTO alimentos(nome, quantidade preco, descricao)"
+        String sql = "INSERT INTO alimentos(nome, quantidade, preco, descricao)"
                 + "VALUES (?,?,?,?)";
         try{
         PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql,
@@ -51,7 +51,7 @@ public class AlimentoDao {
         ps.setByte(quantidade++, alimento.getQuantidade());
         ps.setDouble(quantidade++, alimento.getPreco());
         ps.setString(quantidade++, alimento.getDescricao());
-        ps.executeQuery();
+        ps.execute();
         ResultSet resultSet = ps.getGeneratedKeys();
         if(resultSet.next()){
             return resultSet.getInt(1);

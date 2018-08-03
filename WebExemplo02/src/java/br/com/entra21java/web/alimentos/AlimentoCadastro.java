@@ -24,7 +24,7 @@ public class AlimentoCadastro extends HttpServlet{
     out.println("<title>Alimentos - Cadastro</title>");
     out.println("</head>");
     out.println("<body>");
-    out.println("<form action='/alimentos/store' method='post'>");
+    out.println("<form action='/WebExemplo02/alimentos/store' method='post'>");
     out.println("<div>");
     out.println("<lable for='campo-nome'>Nome</lable>");
     out.println("<input type='text' id='campo-nome' name='nome'>");

@@ -1,0 +1,30 @@
+/* 
+    Created on : 03/08/2018, 09:47:22
+    Author     : Michelle de Jesus Rogério
+*/
+body{
+    margin: 0;
+    padding: 0;
+}
+
+table{width: 100%}
+
+
+table thead tr, table foot tr{
+    background-color: #007bff;
+    color: white;
+    height: 32px;
+    font-size: 19px;
+    font-family: sans-serif;
+
+}
+
+table tbody tr{
+    color: white;
+    font-size: 19px;
+    font-family: sans-serif;
+    height:25px;
+}
+
+table tbody tr:nth-child(even){background-color: #CCC}
+table tbody tr:nth-child(odd){background-color: #6c757d}
