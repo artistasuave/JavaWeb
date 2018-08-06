@@ -31,19 +31,21 @@ public class AlimentosEditar extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<form action='/alimentos/update' method='post'>");
-        out.println("<input type='hiden' name='id' value='"+alimento.getId()+">");
+        out.println("<input type='hidden' name='id' value='"+alimento.getId()+"'>");
         out.println("<div>");
         out.println("<lable for='campo-nome'>Nome</lable>");
         out.println("<input type='text' id='campo-nome'name='nome' value='"+alimento.getNome()+"'>");
         out.println("</div>");
         out.println("<div>");
-        out.println("<label for='campo-quantidade'>Quantidade</label><input type='text' id='campo-quantidade' name='quantidade' value'"
+        out.println("<label for='campo-quantidade'>Quantidade</label>");
+        out.println("<input type='text' id='campo-quantidade' name='quantidade' value='"
                 +alimento.getQuantidade()+"'></div>");
         out.println("<div>");
         out.println("<label for='campo-preco'>Preço</label><input type='text' id='campo-preco' name='preco' value='"+alimento.getPreco()+"'>");
         out.println("</div>");
         out.println("<div>");
-        out.println("<label for='campo-descricao'>Descrição<textarea id='campo-descricao' name='descricao' value'"+alimento.getDescricao()+"'></textarea></label>");
+        out.println("<label for='campo-descricao'>Descrição</label>");
+        out.println("<textarea id='campo-descricao' name='descricao'>" +alimento.getDescricao()+"</textarea>");
         out.println("</div>");
         out.println("<input type='submit' value='Alterar'>");
         out.println("</form>");

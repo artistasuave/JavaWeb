@@ -53,8 +53,8 @@ public class AlimentoIndex extends HttpServlet {
             out.println("<td>" + alimento.getQuantidade() + "</td>");
             out.println("<td>" + alimento.getPreco() + "</td>");
             out.println("<td>");
-            out.println("<a href='/WebExemplo/alimentos/Editar?id="+alimento.getId()+"'class='botao-editar'>Editar</a>");
-            out.println("<a href='/WebExemplo/alimentos/Excluir?id"+alimento.getId()+"'class='botao-excluir'>Excluir</a>");
+            out.println("<a href='/WebExemplo02/alimentos/editar?id="+alimento.getId()+"'class='botao-editar'>Editar</a>");
+            out.println("<a href='/WebExemplo02/alimentos/excluir?id"+alimento.getId()+"'class='botao-excluir'>Excluir</a>");
             out.println("</td>");
             out.println("</tr>");
         }
