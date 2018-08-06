@@ -30,7 +30,7 @@ public class AlimentosEditar extends HttpServlet {
         out.println("<title>Alimentos - Editar</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<form action='/alimentos/update' method='post'>");
+        out.println("<form action='/WebExemplo02/alimentos/update' method='post'>");
         out.println("<input type='hidden' name='id' value='"+alimento.getId()+"'>");
         out.println("<div>");
         out.println("<lable for='campo-nome'>Nome</lable>");

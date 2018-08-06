@@ -103,4 +103,22 @@ public class AlimentoDao {
         }
         return null;
     }
+    
+    public boolean alterar(AlimentoBean alimento){
+        String sql = "UPDATE alimentos SET nome = ?, descricao = ?, preco = ?, quantidade = ? WHERE id =?";
+        try {
+            PreparedStatement ps = Conexao.obterConexao().prepareStatement(sql);
+            ps.setString(1, alimento.getNome());
+            ps.setString(2,alimento.getDescricao());
+            ps.setDouble(3, alimento.getPreco());
+            ps.setByte(4, alimento.getQuantidade());
+            ps.setInt(5, alimento.getId());
+            return ps.executeUpdate() == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            Conexao.fecharConexao();
+        }
+        return false;
+    }
 }
