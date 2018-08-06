@@ -22,23 +22,29 @@ public class AlimentoCadastro extends HttpServlet{
     out.println("<html>");
     out.println("<head>");
     out.println("<title>Alimentos - Cadastro</title>");
+    out.println("<link rel='stylesheet' type='text/css' href='WebExemplo02/bootstrap/css/bootstrap.css'>");
     out.println("</head>");
     out.println("<body>");
+    out.println("<div class='container-fluid'>");
+    
     out.println("<form action='/WebExemplo02/alimentos/store' method='post'>");
-    out.println("<div>");
+    out.println("<div class = 'form-group'>");
     out.println("<lable for='campo-nome'>Nome</lable>");
     out.println("<input type='text' id='campo-nome' name='nome'>");
+    out.println("<input type='text' class= 'form-control' id='campo-nome' name='nome'>");
     out.println("</div>");
-    out.println("<div>");
+    out.println("<div class='form-group'>");
     out.println("<label for='campo-quantidade'>Quantidade</label><input type='text' id='campo-quantidade' name='quantidade'></div>");
     out.println("<div>");
     out.println("<label for='campo-preco'>Preço</label><input type='text' id='campo-preco' name='preco'>");
     out.println("</div>");
-    out.println("<div>");
-    out.println("<label for='campo-descricao'>Descrição<textarea id='campo-descricao' name='descricao'></textarea></label>");
+    out.println("<div class='form-group'>");
+    out.println("<label for='campo-descricao'>Descrição</label>");
+    out.println("<textarea class='form-control' id='campo-descricao' name='descricao'></textarea>");
     out.println("</div>");
-    out.println("<input type='submit' value='Cadastrar'>");
+    out.println("<input class='btn btn-success' type='submit' value='Cadastrar'>");
     out.println("</form>");
+    out.println("</div>");
     out.println("</body>");
     out.println("</html>");
     }

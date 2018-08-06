@@ -17,27 +17,52 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/alimentos")
 public class AlimentoIndex extends HttpServlet {
 
+    private PrintWriter out;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         List<AlimentoBean> alimentos
                 = new AlimentoDao().obterTodos();
     
-        PrintWriter out = resp.getWriter();
+        out = resp.getWriter();
 
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Alimentos - Lista</title>");
-      //out.println("<link rel='stylesheet' type='text/css' href='alimentos-index.css'>");
-        out.println("<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.css'>");
+        out.println("<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.css'/>");
+        out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h3>Lista de Alimentos</h3>");
-        out.println("<a href='/WebExemplo02/alimentos/cadastro' class='botao-cadastro'>Novo Alimento</a>");
-        out.println("<table>");
+        out.println("<div class='container-fluid'>");
+        out.println("<div class='row'>");
+        out.println("<div class='col-md-12'>");
+
+        out.println("<h3 class='text-center'>Lista de Alimentos</h3>");
+        out.println("</div>");
+        out.println("</div>");
+
+        out.println("<div class='row'>");
+        out.println("<div class='col-md-2 offset-md-10'>");
+        out.println("<a href='/WebExemplo02/alimentos/cadastro' "
+                + "class='btn btn-primary float-right'><i class= 'fa fa-user'></i> Novo Alimento</a>");
+        out.println("</div>");
+        out.println("</div>");
+
+        gerarTabela(alimentos);
+
+        out.println("</body>");
+        out.println("</html>");
+    }
+
+    private void gerarTabela(List<AlimentoBean> alimentos) {
+        out.println("<div class='row mtx-3 justify-content-md-center'>");
+        out.println("<div class='col-md-8'>");
+
+        out.println("<table class='table table-striped table-hover'>");
         out.println("<thead>");
-        out.println("<tr>");
+        out.println("<tr class='table-primary'>");
         out.println("<th>Código</th>");
         out.println("<th>Nome</th>");
         out.println("<th>Quantidade</th>");
@@ -48,19 +73,24 @@ public class AlimentoIndex extends HttpServlet {
         out.println("<tbody>");
 
         for (AlimentoBean alimento : alimentos) {
+
             out.println("<tr>");
             out.println("<td>" + alimento.getId() + "</td>");
             out.println("<td>" + alimento.getNome() + "</td>");
             out.println("<td>" + alimento.getQuantidade() + "</td>");
             out.println("<td>" + alimento.getPreco() + "</td>");
             out.println("<td>");
-            out.println("<a href='/WebExemplo02/alimentos/editar?id="+alimento.getId()+"'class='botao-editar'>Editar</a>");
-            out.println("<a href='/WebExemplo02/alimentos/excluir?id"+alimento.getId()+"'class='botao-excluir'>Excluir</a>");
+
+            out.println("<a href='/WebExemplo02/alimentos/editar?id="
+                    + alimento.getId() + "'class='btn btn-outline-sucess'><i class='fa fa-edit'></i> Editar</a>");
+            out.println("<a href='/WebExemplo02/alimentos/excluir?id="
+                    + alimento.getId() + "'class='botao-excluir'>Excluir</a>");
+
             out.println("</td>");
             out.println("</tr>");
         }
-        out.println("</tbody>");
 
+        out.println("</tbody>");
         out.println("<tfoot>");
         out.println("<tr>");
         out.println("<th>Código</th>");
@@ -69,8 +99,11 @@ public class AlimentoIndex extends HttpServlet {
         out.println("<th>Preço</th>");
         out.println("<th>Ação</th>");
         out.println("</tr>");
-        out.println("</foot>");
+        out.println("</tfoot>");
         out.println("</table>");
-        out.println("</html>");
+
+        out.println("</div>");
+        out.println("</div>");
+
     }
 }
