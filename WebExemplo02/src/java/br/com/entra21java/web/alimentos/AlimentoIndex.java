@@ -12,27 +12,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author Michelle de Jesus Rogério
+ *
+ * @author Michelle de Jesus Rogerio
  */
 @WebServlet(urlPatterns = "/alimentos")
 public class AlimentoIndex extends HttpServlet {
 
     private PrintWriter out;
-    
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        List<AlimentoBean> alimentos
-                = new AlimentoDao().obterTodos();
-    
-        out = resp.getWriter();
 
+    @Override
+    protected void doGet(HttpServletRequest req,
+            HttpServletResponse resp) throws ServletException, IOException {
+        List<AlimentoBean> alimentos = new AlimentoDao().obterTodos();
+        out = resp.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Alimentos - Lista</title>");
         out.println("<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.css'/>");
-        out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' crossorigin='anonymous'>");
+        out.println("<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' "
+                + "integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ' "
+                + "crossorigin='anonymous'>");
         out.println("</head>");
         out.println("<body>");
         out.println("<div class='container-fluid'>");
@@ -46,7 +46,7 @@ public class AlimentoIndex extends HttpServlet {
         out.println("<div class='row'>");
         out.println("<div class='col-md-2 offset-md-10'>");
         out.println("<a href='/WebExemplo02/alimentos/cadastro' "
-                + "class='btn btn-primary float-right'><i class= 'fa fa-user'></i> Novo Alimento</a>");
+                + "class='btn btn-primary float-right'><i class='fa fa-user'></i> Novo Alimento</a>");
         out.println("</div>");
         out.println("</div>");
 
@@ -82,9 +82,9 @@ public class AlimentoIndex extends HttpServlet {
             out.println("<td>");
 
             out.println("<a href='/WebExemplo02/alimentos/editar?id="
-                    + alimento.getId() + "'class='btn btn-outline-sucess'><i class='fa fa-edit'></i> Editar</a>");
+                    + alimento.getId() + "'class='btn btn-outline-success'><i class='fa fa-edit'></i>Editar</a>");
             out.println("<a href='/WebExemplo02/alimentos/excluir?id="
-                    + alimento.getId() + "'class='botao-excluir'>Excluir</a>");
+                    + alimento.getId() + "'class='btn btn-outline-danger'><i class='fa fa-trash'></i>Excluir</a>");
 
             out.println("</td>");
             out.println("</tr>");
@@ -106,4 +106,5 @@ public class AlimentoIndex extends HttpServlet {
         out.println("</div>");
 
     }
+
 }
